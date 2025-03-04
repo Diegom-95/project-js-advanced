@@ -4,13 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="./img/favicon.png">
-  <title>X-LIBRARY</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS” crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title>X-LIBRARY</title>
 </head>
 <body>
-  <div id="app">
-    <img src="./img/logo.png" alt="Logo" class="logo">
-    <h1>Benvenuto nel mio progetto Webpack</h1>
-    <p>Questo è un esempio di base.</p>
+  <div class="logo-container">
+    <img src="img/logo.png" alt="logo" class="logo">
   </div>
+
+  <div class="container">
+    <header>
+      <h1>Esplora libri per categoria</h1>
+      <div class="search-bar">
+        <input type="text" id="category" placeholder="Inserisci una categoria (es. fantasy)">
+        <button id="searchBtn"><i class="fas fa-search"></i> Cerca</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="bookList"></div>
+      <button id="loadMoreBtn" style="display: none;">Carica altri</button>
+    </main>
+  </div>
+
+  <div id="bookPopup">
+    <div id="bookPopupContent">
+      <span class="closePopup">&times;</span>
+      <div id="popupDetails"></div>
+    </div>
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
