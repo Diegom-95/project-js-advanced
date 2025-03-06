@@ -22,13 +22,13 @@
     <header>
       <h1>Esplora libri per categoria</h1>
       <div class="search-bar">
-        <input type="text" id="category" placeholder="Inserisci una categoria (es. fantasy)">
+        <input type="text" id="category" placeholder="Inserisci una categoria (es. thriller)">
         <button id="searchBtn"><i class="fas fa-search"></i> Cerca</button>
       </div>
     </header>
 
     <main>
-      <div id="bookList"></div>
+      <div id="booksList"></div>
       <button id="loadMoreBtn" style="display: none;">Carica altri</button>
     </main>
   </div>
@@ -40,6 +40,13 @@
       <div id="popupDetails"></div>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="https://github.com/Diegom-95" target="_blank" class="github-link">
+      <i class="fab fa-github"></i> @Diego Maggioni
+    </a>
+  </footer>
  
   <!-- Script -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
