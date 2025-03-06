@@ -1,7 +1,7 @@
 # :arrow_right: X-LIBRARY :arrow_left:
 A simple counter that, based on the age selected by the user, returns the months, days, and hours that have passed since birth.
 
-<a href="https://the-life-counter.netlify.app/"><img src="/src/img/home.PNG"></a>
+<a href="https://x-library.netlify.app/"><img src="/src/img/home.PNG"></a>
 
 
 ## :question: About
@@ -17,7 +17,7 @@ I used Webpack, GIT, and Axios as technologies.
 
 ## :zap:  Try it!
 You can try X-LIBRARY at this link:
-[X-LIBRARY](https://the-life-counter.netlify.app/)
+[X-LIBRARY](https://x-library.netlify.app/)
 
 
 ## :e-mail: Contact Me
