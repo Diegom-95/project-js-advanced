@@ -107,7 +107,7 @@ button:hover {
 #booksList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  gap: 60px; /* Aumentato il gap tra le colonne e le righe */
   justify-items: center;
   margin-top: 50px;
 }
@@ -122,6 +122,7 @@ button:hover {
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+  margin: 15px; /* Aggiunto margine esterno per separare ulteriormente gli elementi */
 }
 
 .book-item:hover {
