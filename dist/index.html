@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS” crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title>X-LIBRARY</title>
+<script defer src="bundle.js"></script></head>
+<body>
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="img/logo.png" alt="logo" class="logo">
+  </div>
+
+ <!-- Main -->
+  <div class="container">
+    <header>
+      <h1>Explore books by category</h1>
+      <div class="search-bar">
+        <input type="text" id="category" placeholder="Enter a category (es. thriller)">
+        <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="booksList"></div>
+      <button id="loadMoreBtn" style="display: none;">Load more</button>
+    </main>
+  </div>
+
+  <!-- Popup -->
+  <div id="bookPopup">
+    <div id="bookPopupContent">
+      <span class="closePopup">&times;</span>
+      <div id="popupDetails"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="https://github.com/Diegom-95" target="_blank" class="github-link">
+      <i class="fab fa-github"></i> @Diego Maggioni
+    </a>
+  </footer>
+ 
+  <!-- Script -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="bundle.js"></script>
+</body>
+</html>
