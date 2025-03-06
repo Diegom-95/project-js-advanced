@@ -1,11 +1,10 @@
-// Importiamo lo stile CSS
 import '../css/style.css';
 
 let currentPage = 1;
 let currentCategory = "";
 let allBooks = [];
 
-
+// Popup creation
 const bookPopup = document.createElement('div');
 bookPopup.id = 'bookPopup';
 bookPopup.style.display = 'none';
@@ -18,7 +17,7 @@ bookPopup.innerHTML = `
 document.body.appendChild(bookPopup);
 
 
-// Chiudi popup quando clicchi sulla X o fuori dal contenuto
+// Closing Popup
 bookPopup.addEventListener('click', (e) => {
     if (e.target.id === 'bookPopup' || e.target.classList.contains('closePopup')) {
         bookPopup.style.display = 'none';
@@ -26,10 +25,11 @@ bookPopup.addEventListener('click', (e) => {
 });
 
 
+// Search functionality
 document.getElementById('searchBtn').addEventListener('click', function() {
     const category = document.getElementById('category').value.trim().toLowerCase();
     if (category === "") {
-        alert("Per favore inserisci una categoria.");
+        alert("Please enter a category.");
         return;
     }
     currentCategory = category;
@@ -38,13 +38,14 @@ document.getElementById('searchBtn').addEventListener('click', function() {
     fetchBooks(category, currentPage);
 });
 
-
+// Loading multiple books
 document.getElementById('loadMoreBtn').addEventListener('click', function() {
     currentPage++;
     fetchBooks(currentCategory, currentPage);
 });
 
 
+// API request
 function fetchBooks(category, page) {
     if (page === 1) {
         document.getElementById('booksList').innerHTML = '';
@@ -57,13 +58,13 @@ function fetchBooks(category, page) {
             displayBooks(allBooks);
             document.getElementById('loadMoreBtn').style.display = "block";
         } else {
-            document.getElementById('booksList').innerHTML = "Nessun libro trovato per questa categoria.";
+            document.getElementById('booksList').innerHTML = "No books found for this category.";
             document.getElementById('loadMoreBtn').style.display = "none";
         }
-    }).catch((error) => console.error("Errore nella richiesta API:", error));
+    }).catch((error) => console.error("API request error:", error));
 }
 
-
+// Viewing books
 function displayBooks(books) {
     const booksList = document.getElementById('booksList');
     const booksToDisplay = books.slice(0, currentPage * 32);
@@ -93,24 +94,20 @@ function fetchBookDetails(bookKey) {
     const url = `https://openlibrary.org${bookKey}.json`;
     axios.get(url).then((response) => {
         const book = response.data;
-        console.log(book); // Continua a mostrare la risposta dell'API
-
-
-        // Controlla se ci sono autori e ottieni il nome dell'autore tramite la chiave
-        let authors = "Autore non disponibile";
+        console.log(book); 
+        
+        let authors = "Author not available";
         if (book.authors && Array.isArray(book.authors) && book.authors.length > 0) {
-            // Estraiamo la chiave dell'autore
-            const authorKey = book.authors[0].author.key;
-            // Otteniamo i dettagli dell'autore
+            const authorKey = book.authors[0].author.key; 
             axios.get(`https://openlibrary.org${authorKey}.json`).then((authorResponse) => {
                 const authorName = authorResponse.data.name;
-                authors = authorName ? authorName : "Autore non disponibile";
+                authors = authorName ? authorName : "Author not available";
                 displayBookDetails(book, authors);
-            }).catch((error) => console.error("Errore nel recupero dei dettagli dell'autore:", error));
+            }).catch((error) => console.error("Error retrieving author details:", error));
         } else {
             displayBookDetails(book, authors);
         }
-    }).catch((error) => console.error("Errore nella richiesta dei dettagli del libro:", error));
+    }).catch((error) => console.error("Error requesting book details:", error));
 }
 
 
@@ -119,13 +116,13 @@ function displayBookDetails(book, authors) {
     if (typeof description === 'object' && description !== null && description.value) {
         description = description.value;
     }
-    description = description || "Descrizione non disponibile";
+    description = description || "Description not available";
 
 
     const details = `
         <h2>${book.title}</h2>
-        <p><strong>Autori:</strong> ${authors}</p>
-        <p><strong>Descrizione:</strong> ${description}</p>
+        <p><strong>Authors:</strong> ${authors}</p>
+        <p><strong>Description:</strong> ${description}</p>
     `;
 
 
@@ -133,7 +130,7 @@ function displayBookDetails(book, authors) {
     if (popupDetails) {
         popupDetails.innerHTML = details;
     } else {
-        console.error("Elemento 'popupDetails' non trovato.");
+        console.error("Element 'popupDetails' not found.");
     }
 
 
@@ -141,7 +138,7 @@ function displayBookDetails(book, authors) {
     if (bookPopup) {
         bookPopup.style.display = 'block';
     } else {
-        console.error("Elemento 'bookPopup' non trovato.");
+        console.error("Element 'popupDetails' not found.");
     }
 }
 
