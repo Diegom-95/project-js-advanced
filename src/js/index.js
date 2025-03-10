@@ -118,13 +118,11 @@ function displayBookDetails(book, authors) {
     }
     description = description || "Description not available";
 
-
     const details = `
         <h2>${book.title}</h2>
         <p><strong>Authors:</strong> ${authors}</p>
         <p><strong>Description:</strong> ${description}</p>
     `;
-
 
     const popupDetails = document.getElementById('popupDetails');
     if (popupDetails) {
@@ -133,7 +131,6 @@ function displayBookDetails(book, authors) {
         console.error("Element 'popupDetails' not found.");
     }
 
-
     const bookPopup = document.getElementById('bookPopup');
     if (bookPopup) {
         bookPopup.style.display = 'block';
@@ -141,7 +138,6 @@ function displayBookDetails(book, authors) {
         console.error("Element 'popupDetails' not found.");
     }
 }
-
 
 document.addEventListener('click', function(event) {
     if (event.target.classList.contains('closePopup')) {
